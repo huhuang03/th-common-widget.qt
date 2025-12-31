@@ -1,0 +1,1 @@
+project("th-common-widget.qt")
