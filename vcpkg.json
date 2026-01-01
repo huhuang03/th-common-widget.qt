@@ -1,5 +1,5 @@
 {
-  "name": "th-common-widget.qt",
+  "name": "th-common-widget-qt",
   "version": "0.0.1",
   "description": "qt common widget",
   "homepage": "https://github.com/huhuang03/th-common-widget.qt",
@@ -12,6 +12,7 @@
     {
       "name": "vcpkg-cmake-config",
       "host": true
-    }
+    },
+    "qtbase"
   ]
 }
