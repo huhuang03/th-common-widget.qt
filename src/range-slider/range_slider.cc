@@ -239,7 +239,7 @@ void RangeSlider::SetMinimum(int aMinimum)
     setMinimum(aMinimum);
 }
 
-int RangeSlider::GetMaximun() const
+int RangeSlider::GetMaximum() const
 {
     return mMaximum;
 }

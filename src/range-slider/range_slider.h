@@ -7,8 +7,6 @@
 class RangeSlider : public QWidget
 {
     Q_OBJECT
-    Q_ENUMS(RangeSliderTypes)
-
 public:
     enum Option {
         NoHandle = 0x0,
@@ -19,21 +17,21 @@ public:
 
     Q_DECLARE_FLAGS(Options, Option)
 
-    RangeSlider( QWidget* aParent = Q_NULLPTR);
-    RangeSlider( Qt::Orientation ori, Options t = DoubleHandles, QWidget* aParent = Q_NULLPTR);
+    explicit RangeSlider( QWidget* aParent = Q_NULLPTR);
+    explicit RangeSlider( Qt::Orientation ori, Options t = DoubleHandles, QWidget* aParent = Q_NULLPTR);
 
-    QSize minimumSizeHint() const override;
+    [[nodiscard]] QSize minimumSizeHint() const override;
 
     int GetMinimun() const;
     void SetMinimum(int aMinimum);
 
-    int GetMaximun() const;
+    [[nodiscard]] int GetMaximum() const;
     void SetMaximum(int aMaximum);
 
-    int GetLowerValue() const;
+    [[nodiscard]] int GetLowerValue() const;
     void SetLowerValue(int aLowerValue);
 
-    int GetUpperValue() const;
+    [[nodiscard]] int GetUpperValue() const;
     void SetUpperValue(int aUpperValue);
 
     void SetRange(int aMinimum, int aMaximum);
@@ -47,9 +45,9 @@ protected:
     void mouseReleaseEvent(QMouseEvent* aEvent) override;
     void changeEvent(QEvent* aEvent) override;
 
-    QRectF firstHandleRect() const;
-    QRectF secondHandleRect() const;
-    QRectF handleRect(int aValue) const;
+    [[nodiscard]] QRectF firstHandleRect() const;
+    [[nodiscard]] QRectF secondHandleRect() const;
+    [[nodiscard]] QRectF handleRect(int aValue) const;
 
 signals:
     void lowerValueChanged(int aLowerValue);
