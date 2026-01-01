@@ -4,7 +4,7 @@
 #include <QPainter>
 #include <QMouseEvent>
 
-class RangeSlider : public QWidget
+class RangeSlider final : public QWidget
 {
     Q_OBJECT
 public:
@@ -22,7 +22,7 @@ public:
 
     [[nodiscard]] QSize minimumSizeHint() const override;
 
-    int GetMinimun() const;
+    [[nodiscard]] int GetMinimum() const;
     void SetMinimum(int aMinimum);
 
     [[nodiscard]] int GetMaximum() const;
@@ -63,8 +63,7 @@ public slots:
 
 private:
     Q_DISABLE_COPY(RangeSlider)
-    float currentPercentage();
-    int validLength() const;
+    [[nodiscard]] int validLength() const;
 
     bool canOver;
     int mMinimum;
@@ -75,16 +74,15 @@ private:
     bool mSecondHandlePressed;
     int mInterval;
     int mDelta;
-    QColor mBackgroudColorEnabled;
-    QColor mBackgroudColorDisabled;
-    QColor mBackgroudColor;
+    QColor mBackgroundColorEnabled;
+    QColor mBackgroundColorDisabled;
+    QColor mBackgroundColor;
     Qt::Orientation orientation;
     Options type;
 
     // helper method;
-private:
     void drawSelect(QPainter &painter, QRectF &backgroundRect, int lower, int upper) const;
-    double getLeftByValue(int value) const;
+    [[nodiscard]] double getLeftByValue(int value) const;
 };
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(RangeSlider::Options)
