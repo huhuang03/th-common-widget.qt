@@ -1,7 +1,3 @@
 @PACKAGE_INIT@
 
-include(CMakeFindDependencyMacro)
-
-find_dependency(Qt6 Widgets)
-
-include("${CMAKE_CURRENT_LIST_DIR}/th-common-widgets-qtTargets.cmake")
+include("${CMAKE_CURRENT_LIST_DIR}/thCommonWidgetsQtTargets.cmake")
